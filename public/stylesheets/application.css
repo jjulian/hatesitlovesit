@@ -1,0 +1,11 @@
+body { font-family: Helvetica; }
+.tweet .score { font-size: 18px; text-align: center; }
+.tweet .text { font-size: 28px; text-align: center; }
+.tweet .permalink { font-size: 10px; }
+.mild.hate.tweet { background-color: #dedede; color: #333; }
+.moderate.hate.tweet { background-color: #999; color: #333; }
+.strong.hate.tweet { background-color: #333; color: #ccc; }
+.mild.love.tweet { background-color: #ffb2b2; color: #333; }
+.moderate.love.tweet { background-color: #f66; color: #333; }
+.strong.love.tweet { background-color: #e60000; color: #ccc; }
+
