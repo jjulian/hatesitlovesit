@@ -20,6 +20,13 @@ class TweetsController < ApplicationController
     end
     render :index
   end
+  
+  def user
+    if params[:screen_name].present?
+      @tweets = Twitter.user_timeline(params[:screen_name])
+    end
+    render :index
+  end
 
   def hate
     train(:hate)

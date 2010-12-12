@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       user = User.find_by_twitter_oauth_token(access_token.token)
       if user
         session[:user_id] = user.id
+        user.update_twitter_profile
       else
         user = User.new(:twitter_oauth_token => access_token.token, :twitter_oauth_secret => access_token.secret)
         if user.save

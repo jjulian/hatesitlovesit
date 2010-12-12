@@ -6,5 +6,6 @@ Hatesitlovesit::Application.routes.draw do
   match 'love' => 'tweets#love', :via => :post, :as => :love
   match 'tweets/public' => 'tweets#public', :via => :get, :as => :twitter_public
   match 'tweets/search' => 'tweets#search', :via => :get, :as => :twitter_search
+  match 'tweets/user' => 'tweets#user', :via => :get, :as => :twitter_user
   root :to => "tweets#index", :via => :get
 end

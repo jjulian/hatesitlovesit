@@ -14,7 +14,14 @@ $(document).ready(function() {
   });
   
   $('.tweets').tablesorter({
-    sortList: [[4,1]] // sort by 4th column DESC
+    sortList: [[4,1]], // sort by 4th column DESC
+    textExtraction: function(node) {
+      if ($(node).data('sortkey')) {
+        return $(node).data('sortkey');
+      } else {
+        return node.innerHTML;
+      }
+    }
   });
   
 });

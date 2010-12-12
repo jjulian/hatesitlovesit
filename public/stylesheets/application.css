@@ -12,10 +12,10 @@ tr.tweet td { border-bottom: 1px solid #efefef; padding:3px; }
 .tweet td.text { font-size: 14px; text-align: center; }
 .tweet td.score, .tweet td.date, .tweet .user { font-size: 10px; }
 
-.mild.hate.tweet { background-color: #dedede; color: #333; }
-.moderate.hate.tweet { background-color: #ccc; color: #333; }
-.strong.hate.tweet { background-color: #333; color: #dedede; }
-.mild.love.tweet { background-color: #ffe6e6; color: #333; }
-.moderate.love.tweet { background-color: #fb2b2b; color: #333; }
-.strong.love.tweet { background-color: #e60000; color: #dedede; }
+.mild.hate.tweet { background-color: #f2f2f2; color: #333; }
+.moderate.hate.tweet { background-color: #e6e6e6; color: #333; }
+.strong.hate.tweet { background-color: #bdbdbd; color: #333; }
+.mild.love.tweet { background-color: #fbefef; color: #333; }
+.moderate.love.tweet { background-color: #f8e0e0; color: #333; }
+.strong.love.tweet { background-color: #f6cece; color: #333; }
 

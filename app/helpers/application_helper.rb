@@ -20,4 +20,18 @@ module ApplicationHelper
   def to_score(crm_pair)
     crm_pair.last * (to_name(crm_pair) == 'hate' ? -1 : 1)
   end
+  
+  def pretty_score(crm_pair)
+    "#{to_name(crm_pair)}! #{to_score(crm_pair).abs}"
+  end
+
+  def pretty_time(time)
+    time = DateTime.parse(time) if time.is_a?(String)
+    if time > 1.day.ago
+      "#{time_ago_in_words(time)} ago"
+    else
+      time.in_time_zone.to_s
+    end
+  end
+
 end

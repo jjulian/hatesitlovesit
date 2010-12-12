@@ -29,6 +29,11 @@ class User < ActiveRecord::Base
     Twitter::Client.new
   end
   
+  def update_twitter_profile
+    get_profile_from_twitter
+    self.save
+  end
+  
   private
   
   def crm114

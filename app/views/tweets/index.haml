@@ -5,6 +5,10 @@
     = form_tag twitter_search_path, :method => :get do
       = text_field_tag :q, params[:q]
       = submit_tag 'Search Twitter'
+  %li
+    = form_tag twitter_user_path, :method => :get do
+      = text_field_tag :screen_name, params[:screen_name]
+      = submit_tag 'User Timeline'
 
 - if @tweets
   %table.tweets.tablesorter{:cellspacing => 0}
@@ -24,8 +28,8 @@
             = form_tag hate_path, :class => 'train hate' do
               = hidden_field_tag 'text', tweet.text, :class => 'text'
               = submit_tag 'Hates It!'
-          %td.date
-            = link_to tweet.created_at, "http://twitter.com/#!/#{tweet.from_user}/status/#{tweet.id_str}", :class => 'permalink'
+          %td.date{:data => {:sortkey => DateTime.parse(tweet.created_at).to_i}}
+            = link_to pretty_time(tweet.created_at), "http://twitter.com/#!/#{tweet.from_user}/status/#{tweet.id_str}", :class => 'permalink'
           %td
             .container.user
               - if tweet.user
@@ -40,9 +44,8 @@
                 = image_tag(tweet.profile_image_url, :class => 'avatar') if tweet.profile_image_url
           %td.text
             = tweet.text
-          %td.score
-            = to_score(classification)
-            -# = to_name(classification)
+          %td.score{:data => {:sortkey => to_score(classification)}}
+            = pretty_score(classification)
           %td
             = form_tag love_path, :class => 'train love' do
               = hidden_field_tag 'text', tweet.text, :class => 'text'
