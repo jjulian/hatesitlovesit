@@ -1,11 +1,21 @@
-body { font-family: Helvetica; }
-.tweet .score { font-size: 18px; text-align: center; }
-.tweet .text { font-size: 28px; text-align: center; }
-.tweet .permalink { font-size: 10px; }
+body { font-family: Century Gothic, sans-serif; font-size: 14px; }
+.container { position: relative; }
+.container.main { margin: 30px 0; }
+h1.title { font-size: 36px; font-weight: lighter; margin:5px; }
+.login_info { position:absolute; top:5px; right:15px; }
+table.tweets { width: 100%; }
+.tweets { border: 1px solid #efefef; }
+tr.tweet td { border-bottom: 1px solid #efefef; padding:3px; }
+.tweet .container.user { height: 48px; }
+.tweet .user_info { width: 96px; margin-left: 52px; }
+.tweet img.avatar { position: absolute; top:0; left:0; width: 48px; height: 48px; }
+.tweet td.text { font-size: 14px; text-align: center; }
+.tweet td.score, .tweet td.date, .tweet .user { font-size: 10px; }
+
 .mild.hate.tweet { background-color: #dedede; color: #333; }
-.moderate.hate.tweet { background-color: #999; color: #333; }
-.strong.hate.tweet { background-color: #333; color: #ccc; }
-.mild.love.tweet { background-color: #ffb2b2; color: #333; }
-.moderate.love.tweet { background-color: #f66; color: #333; }
-.strong.love.tweet { background-color: #e60000; color: #ccc; }
+.moderate.hate.tweet { background-color: #ccc; color: #333; }
+.strong.hate.tweet { background-color: #333; color: #dedede; }
+.mild.love.tweet { background-color: #ffe6e6; color: #333; }
+.moderate.love.tweet { background-color: #fb2b2b; color: #333; }
+.strong.love.tweet { background-color: #e60000; color: #dedede; }
 

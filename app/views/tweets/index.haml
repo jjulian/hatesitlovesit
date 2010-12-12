@@ -1,21 +1,49 @@
-%table.tweets{:cellspacing => 0}
-  - @tweets.each do |tweet|
-    - classification = current_user.classify(tweet.text)
-    %tr.tweet{:class => make_class(classification)}
-      %td
-        = form_tag hate_path, :class => 'train hate' do
-          = hidden_field_tag 'text', tweet.text, :class => 'text'
-          = submit_tag 'Hates It!'
-      %td
-        %p.score
-          = classification.first.to_s.gsub(/^(\S+)_/, '')
-          = classification.last
-        %br
-        %p.text= tweet.text
-        %p
-          = link_to tweet.created_at, "http://twitter.com/#!/#{tweet.from_user}/status/#{tweet.id_str}", :class => 'permalink'
-      %td
-        = form_tag love_path, :class => 'train love' do
-          = hidden_field_tag 'text', tweet.text, :class => 'text'
-          = submit_tag 'Loves It!'
-= will_paginate @tweets
+%ul
+  %li= link_to_unless_current 'Home timeline', root_path
+  %li= link_to_unless_current 'Public timeline', twitter_public_path
+  %li
+    = form_tag twitter_search_path, :method => :get do
+      = text_field_tag :q, params[:q]
+      = submit_tag 'Search Twitter'
+
+- if @tweets
+  %table.tweets.tablesorter{:cellspacing => 0}
+    %thead
+      %tr
+        %th &nbsp;
+        %th Date
+        %th User
+        %th &nbsp;
+        %th Score
+        %th &nbsp;
+    %tbody
+      - @tweets.each do |tweet|
+        - classification = current_user.classify(tweet.text)
+        %tr.tweet{:class => make_class(classification)}
+          %td
+            = form_tag hate_path, :class => 'train hate' do
+              = hidden_field_tag 'text', tweet.text, :class => 'text'
+              = submit_tag 'Hates It!'
+          %td.date
+            = link_to tweet.created_at, "http://twitter.com/#!/#{tweet.from_user}/status/#{tweet.id_str}", :class => 'permalink'
+          %td
+            .container.user
+              - if tweet.user
+                .user_info
+                  @#{tweet.user.screen_name}
+                  %br
+                  = tweet.user.location
+                = image_tag(tweet.user.profile_image_url, :class => 'avatar') if tweet.user.profile_image_url
+              - else
+                .user_info
+                  @#{tweet.from_user}
+                = image_tag(tweet.profile_image_url, :class => 'avatar') if tweet.profile_image_url
+          %td.text
+            = tweet.text
+          %td.score
+            = to_score(classification)
+            -# = to_name(classification)
+          %td
+            = form_tag love_path, :class => 'train love' do
+              = hidden_field_tag 'text', tweet.text, :class => 'text'
+              = submit_tag 'Loves It!'

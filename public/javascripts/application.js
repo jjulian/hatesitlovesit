@@ -12,5 +12,9 @@ $(document).ready(function() {
     });
     return false;
   });
-
+  
+  $('.tweets').tablesorter({
+    sortList: [[4,1]] // sort by 4th column DESC
+  });
+  
 });

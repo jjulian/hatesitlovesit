@@ -19,6 +19,16 @@ class User < ActiveRecord::Base
     OAuth::Consumer.new(CONSUMER_KEY, CONSUMER_SECRET, :site => 'http://api.twitter.com', :request_endpoint => 'http://api.twitter.com', :sign_in => true)
   end
   
+  def twitter
+    Twitter.configure do |config|
+      config.consumer_key = CONSUMER_KEY
+      config.consumer_secret = CONSUMER_SECRET
+      config.oauth_token = twitter_oauth_token
+      config.oauth_token_secret = twitter_oauth_secret
+    end
+    Twitter::Client.new
+  end
+  
   private
   
   def crm114
@@ -29,13 +39,7 @@ class User < ActiveRecord::Base
     if self.twitter_oauth_token && self.twitter_oauth_secret
       begin
         User.twitter_oauth
-        Twitter.configure do |config|
-          config.consumer_key = CONSUMER_KEY
-          config.consumer_secret = CONSUMER_SECRET
-          config.oauth_token = twitter_oauth_token
-          config.oauth_token_secret = twitter_oauth_secret
-        end
-        client = Twitter::Client.new
+        client = self.twitter
         self.twitter_profile = client.verify_credentials
       rescue Errno::ECONNRESET => e
         logger.error "could not connect to twitter to get user profile: #{e.message}"

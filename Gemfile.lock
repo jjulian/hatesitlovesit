@@ -86,7 +86,6 @@ GEM
       multi_xml (~> 0.2.0)
       simple_oauth (~> 0.1.2)
     tzinfo (0.3.23)
-    will_paginate (2.3.15)
 
 PLATFORMS
   ruby
@@ -98,4 +97,3 @@ DEPENDENCIES
   oauth
   rails (= 3.0.3)
   twitter (>= 1.0.0)
-  will_paginate
