@@ -1,15 +1,17 @@
-body { font-family: Century Gothic, sans-serif; font-size: 14px; }
+body { font-family: Century Gothic, sans-serif; font-size: 28px; }
+img { border: none; }
 .container { position: relative; }
-.container.main { margin: 30px 0; }
-h1.title { font-size: 36px; font-weight: lighter; margin:5px; }
+h1.title { font-size: 58px; font-weight: lighter; margin:5px; }
 .login_info { position:absolute; top:5px; right:15px; }
+.login_info img { vertical-align: middle; }
+.login_info .sign_out { font-size: 10px; }
 table.tweets { width: 100%; }
-.tweets { border: 1px solid #efefef; }
+.tweets th { cursor: pointer; }
 tr.tweet td { border-bottom: 1px solid #efefef; padding:3px; }
 .tweet .container.user { height: 48px; }
 .tweet .user_info { width: 96px; margin-left: 52px; }
 .tweet img.avatar { position: absolute; top:0; left:0; width: 48px; height: 48px; }
-.tweet td.text { font-size: 14px; text-align: center; }
+.tweet td.text { text-align: center; }
 .tweet td.score, .tweet td.date, .tweet .user { font-size: 10px; }
 
 .mild.hate.tweet { background-color: #f2f2f2; color: #333; }
