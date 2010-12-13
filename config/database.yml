@@ -34,6 +34,6 @@ production:
   reconnect: false
   database: hatesitlovesit_production
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: hili-user
+  password: EBobEZN3N9v92AjH
+  socket: /var/run/mysqld/mysqld.sock
