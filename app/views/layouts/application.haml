@@ -9,15 +9,19 @@
     = stylesheet_link_tag 'application'
     = yield :head
   %body
-    %h1.title Hates it? Loves it?
-    - if current_user
-      .login_info
-        = image_tag current_user.twitter_profile.profile_image_url, :size => '36x36'
-        #{current_user.screen_name} |
-        %span.sign_out (#{link_to 'sign out', sign_out_path})
+    .container.header
+      %h1.title Hates it? Loves it?
+      - if current_user
+        .login_info
+          = image_tag current_user.twitter_profile.profile_image_url, :size => '36x36'
+          #{current_user.screen_name} |
+          %span.sign_out (#{link_to 'sign out', sign_out_path})
     
     .container.main
       = yield
+      
+    .container.footer
+      Built by #{link_to 'Jonathan Julian', 'http://jonathanjulian.com/'} using #{link_to 'CRM114', 'http://crm114.sourceforge.net/'}
     
     = javascript_include_tag Rails.env.production? ? 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js' : 'jquery-1.4.4.js'
     = javascript_include_tag 'jquery.tablesorter.min'

@@ -22,7 +22,7 @@ module ApplicationHelper
   end
   
   def pretty_score(crm_pair)
-    "#{to_name(crm_pair)}! #{to_score(crm_pair).abs}"
+    "#{to_name(crm_pair)}! #{to_score(crm_pair).abs}" unless to_score(crm_pair).abs == 0.5
   end
 
   def pretty_time(time)

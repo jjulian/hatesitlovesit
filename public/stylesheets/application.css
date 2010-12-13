@@ -6,18 +6,20 @@ h1.title { font-size: 58px; font-weight: lighter; margin:5px; }
 .login_info img { vertical-align: middle; }
 .login_info .sign_out { font-size: 10px; }
 table.tweets { width: 100%; }
-.tweets th { cursor: pointer; }
-tr.tweet td { border-bottom: 1px solid #efefef; padding:3px; }
+.tweets th { cursor: pointer; font-size: 12px; }
+.tweets tr.tweet td { border-bottom: 1px solid #cdcdcd; padding:3px; }
 .tweet .container.user { height: 48px; }
 .tweet .user_info { width: 96px; margin-left: 52px; }
 .tweet img.avatar { position: absolute; top:0; left:0; width: 48px; height: 48px; }
 .tweet td.text { text-align: center; }
 .tweet td.score, .tweet td.date, .tweet .user { font-size: 10px; }
 
-.mild.hate.tweet { background-color: #f2f2f2; color: #333; }
-.moderate.hate.tweet { background-color: #e6e6e6; color: #333; }
-.strong.hate.tweet { background-color: #bdbdbd; color: #333; }
-.mild.love.tweet { background-color: #fbefef; color: #333; }
-.moderate.love.tweet { background-color: #f8e0e0; color: #333; }
-.strong.love.tweet { background-color: #f6cece; color: #333; }
+.tweet { background-color: #fff; color: #333; }
+.mild.hate.tweet { background-color: #f2f2f2; }
+.moderate.hate.tweet { background-color: #e6e6e6; }
+.strong.hate.tweet { background-color: #bdbdbd; }
+.mild.love.tweet { background-color: #fbefef; }
+.moderate.love.tweet { background-color: #f8e0e0; }
+.strong.love.tweet { background-color: #f6cece; }
 
+.footer { margin-top: 50px; }

@@ -14,12 +14,12 @@
   %table.tweets.tablesorter{:cellspacing => 0}
     %thead
       %tr
-        %th &nbsp;
-        %th Date
-        %th User
-        %th &nbsp;
-        %th Score
-        %th &nbsp;
+        %th
+        %th Sort by Date
+        %th Sort by User
+        %th
+        %th Sort by Score
+        %th
     %tbody
       - @tweets.each do |tweet|
         - classification = current_user.classify(tweet.text)
