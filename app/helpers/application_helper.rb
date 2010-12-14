@@ -33,5 +33,12 @@ module ApplicationHelper
       time.in_time_zone.to_s
     end
   end
+  
+  def loved?(crm_pair)
+    to_score(crm_pair) == 1
+  end
+  def hated?(crm_pair)
+    to_score(crm_pair) == -1
+  end
 
 end

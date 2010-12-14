@@ -7,6 +7,7 @@ $(document).ready(function() {
       data: {'text': $(this).find('input.text').val()},
       success: function() {
         $(this).closest('tr').addClass('clicked');
+        $(this).addClass('marked');
       },
       context: this
     });

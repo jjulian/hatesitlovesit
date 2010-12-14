@@ -5,6 +5,16 @@ h1.title { font-size: 58px; font-weight: lighter; margin:5px; }
 .login_info { position:absolute; top:5px; right:15px; }
 .login_info img { vertical-align: middle; }
 .login_info .sign_out { font-size: 10px; }
+.instructions { font-size: 14px; }
+
+ul.tabs { list-style-type: none; }
+ul.tabs li { display: inline; margin-right: 5px; padding: 5px 10px; }
+ul.tabs li form { display: inline; margin: 0; }
+ul.tabs li { border-top: 1px solid #333; border-left: 1px solid #333; border-right: 1px solid #333;}
+ul.tabs li input[type=text] { border: 1px solid #ccc; }
+ul.tabs li input.button { border: 1px solid #333; background-color: #ccc; }
+ul.tabs li input.button:hover { background-color: #666; color: #fff; cursor: pointer; }
+
 table.tweets { width: 100%; }
 .tweets th { font-size: 12px; }
 .tweets th.sort { cursor: pointer; font-size: 12px; }
@@ -23,4 +33,18 @@ table.tweets { width: 100%; }
 .moderate.love.tweet { background-color: #f8e0e0; }
 .strong.love.tweet { background-color: #f6cece; }
 
+form.train input.button { border: 1px solid #333; background-color: #ccc; height: 20px;}
+form.train input.button:hover { cursor: pointer; }
+form.hate input.button { border: 1px solid #333; background-color: #666; color: #ccc; }
+form.hate input.button:hover { background-color: black; color: #fff; }
+form.hate.marked input.button { background-color: black; color: #fff; }
+form.love input.button { border: 1px solid #333; background-color: #f6cece; }
+form.love input.button:hover { background-color: red; color: #fff; }
+form.love.marked input.button { background-color: red; color: #fff; }
+
 .footer { margin-top: 50px; }
+.button {
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+}

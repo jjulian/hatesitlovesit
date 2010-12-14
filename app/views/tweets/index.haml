@@ -1,14 +1,15 @@
-%ul
+%p.instructions Click on tweets you hate and tweets you love. We'll predict and highlight new tweets for you.
+%ul.tabs
   %li= link_to_unless_current 'Home timeline', root_path
   %li= link_to_unless_current 'Public timeline', twitter_public_path
   %li
     = form_tag twitter_search_path, :method => :get do
-      = text_field_tag :q, params[:q]
-      = submit_tag 'Search Twitter'
+      = text_field_tag :q, params[:q], :placeholder => 'search'
+      = submit_tag 'Search Twitter', :class => 'button'
   %li
     = form_tag twitter_user_path, :method => :get do
-      = text_field_tag :screen_name, params[:screen_name]
-      = submit_tag 'User Timeline'
+      = text_field_tag :screen_name, params[:screen_name], :placeholder => 'screen name'
+      = submit_tag 'User Timeline', :class => 'button'
 
 - if @tweets
   %table.tweets.tablesorter{:cellspacing => 0}
@@ -43,10 +44,10 @@
           %td.score{:data => {:sortkey => to_score(classification)}}
             = pretty_score(classification)
           %td
-            = form_tag hate_path, :class => 'train hate' do
+            = form_tag hate_path, :class => "train hate #{hated?(classification) ? 'marked' : ''}" do
               = hidden_field_tag 'text', tweet.text, :class => 'text'
-              = submit_tag 'Hates It!'
+              = submit_tag 'Hates It!', :class => 'button'
           %td
-            = form_tag love_path, :class => 'train love' do
+            = form_tag love_path, :class => "train love #{loved?(classification) ? 'marked' : ''}" do
               = hidden_field_tag 'text', tweet.text, :class => 'text'
-              = submit_tag 'Loves It!'
+              = submit_tag 'Loves It!', :class => 'button'
