@@ -6,7 +6,8 @@ h1.title { font-size: 58px; font-weight: lighter; margin:5px; }
 .login_info img { vertical-align: middle; }
 .login_info .sign_out { font-size: 10px; }
 table.tweets { width: 100%; }
-.tweets th { cursor: pointer; font-size: 12px; }
+.tweets th { font-size: 12px; }
+.tweets th.sort { cursor: pointer; font-size: 12px; }
 .tweets tr.tweet td { border-bottom: 1px solid #cdcdcd; padding:3px; }
 .tweet .container.user { height: 48px; }
 .tweet .user_info { width: 96px; margin-left: 52px; }

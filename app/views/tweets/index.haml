@@ -14,20 +14,16 @@
   %table.tweets.tablesorter{:cellspacing => 0}
     %thead
       %tr
+        %th.sort Sort
+        %th.sort Sort
         %th
-        %th Sort by Date
-        %th Sort by User
+        %th.sort Sort
         %th
-        %th Sort by Score
         %th
     %tbody
       - @tweets.each do |tweet|
         - classification = current_user.classify(tweet.text)
         %tr.tweet{:class => make_class(classification)}
-          %td
-            = form_tag hate_path, :class => 'train hate' do
-              = hidden_field_tag 'text', tweet.text, :class => 'text'
-              = submit_tag 'Hates It!'
           %td.date{:data => {:sortkey => DateTime.parse(tweet.created_at).to_i}}
             = link_to pretty_time(tweet.created_at), "http://twitter.com/#!/#{tweet.from_user}/status/#{tweet.id_str}", :class => 'permalink'
           %td
@@ -46,6 +42,10 @@
             = tweet.text
           %td.score{:data => {:sortkey => to_score(classification)}}
             = pretty_score(classification)
+          %td
+            = form_tag hate_path, :class => 'train hate' do
+              = hidden_field_tag 'text', tweet.text, :class => 'text'
+              = submit_tag 'Hates It!'
           %td
             = form_tag love_path, :class => 'train love' do
               = hidden_field_tag 'text', tweet.text, :class => 'text'
